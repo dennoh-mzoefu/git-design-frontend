@@ -4,9 +4,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { Navbar, Sidebar } from "./Components";
+import { useSelector } from "react-redux";
+import Kanban from "./Components/Kanban/Kanban";
+import Calendar from "./Components/Calendar/Calendar";
+import CreateProject from "./Components/CreateProject/CreateProject";
+import Home from "./Components/Home/Home";
 
 function App() {
-  const activeMenu = true;
+  const { sideBarVisibility } = useSelector((state) => state.sideBarVisibility);
   return (
     <div>
       <BrowserRouter>
@@ -23,7 +28,7 @@ function App() {
               </button>
             </TooltipComponent>
           </div>
-          {activeMenu ? (
+          {sideBarVisibility ? (
             <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
               <Sidebar />
             </div>
@@ -35,7 +40,7 @@ function App() {
           {/* navbar */}
           <div
             className={`dark:bg-main-dark-bg bg-main-bg min-h-screen w-full ${
-              activeMenu ? "md:ml-72" : "flex-2"
+              sideBarVisibility ? "md:ml-72" : "flex-2"
             }`}
           >
             <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
@@ -47,8 +52,11 @@ function App() {
               <Routes>
                 {/* dashboard */}
 
-                <Route path="/ecommerce" element={<Repository />} />
-                <Route path="/" element={<Repository />} />
+                <Route path="/home" element={<Repository />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/kanban" element={<Kanban />} />
+                <Route path="/calendar" element={<Calendar />} />
+                <Route path="/create" element={<CreateProject />} />
               </Routes>
             </div>
           </div>

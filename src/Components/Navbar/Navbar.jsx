@@ -4,9 +4,11 @@ import { FiShoppingCart } from "react-icons/fi";
 import { BsChatLeft } from "react-icons/bs";
 import { RiNotification3Line } from "react-icons/ri";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { useSelector, useDispatch } from "react-redux";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
 import avatar from "../../data/avatar.jpg";
+import { menuVisible } from "../../redux/actions/uiActions";
 // import { Cart, Chat, Notification, UserProfile } from ".";
 
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
@@ -27,19 +29,21 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 );
 
 const Navbar = () => {
+  const { sideBarVisibility } = useSelector((state) => state.sideBarVisibility);
+  const dispatch = useDispatch();
   const initialState = {
     chat: false,
     cart: false,
     userProfile: false,
     notifiactiono: false,
   };
-  const [activeMenu, setActiveMenu] = useState(true);
   const [isClicked, setIsClicked] = useState(initialState);
   const [screenSize, setScreenSize] = useState(undefined);
 
   const handleClick = (clicked) => {
     setIsClicked({ ...initialState, [clicked]: true });
   };
+
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
 
@@ -52,22 +56,22 @@ const Navbar = () => {
 
   useEffect(() => {
     if (screenSize <= 900) {
-      setActiveMenu(false);
+      dispatch(menuVisible(false));
     } else {
-      setActiveMenu(true);
+      dispatch(menuVisible(true));
     }
   }, [screenSize]);
 
-  const handleActiveMenu = () => setActiveMenu(!activeMenu);
+  const handleActiveMenu = () => {
+    dispatch(menuVisible(true));
+    console.log({ sideBarVisibility });
+  };
 
   return (
     <div className="flex justify-between p-2 md:mx-6 relative">
-      <NavButton
-        title="Menu"
-        customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
-        color="blue"
-        icon={<AiOutlineMenu />}
-      />
+      <div onClick={handleActiveMenu}>
+        <NavButton title="Menu" color="blue" icon={<AiOutlineMenu />} />
+      </div>
       <div className="flex">
         <NavButton
           title="Cart"

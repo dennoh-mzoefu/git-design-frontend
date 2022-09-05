@@ -1,0 +1,24 @@
+.app {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.home__link__nav {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+.home__link__nav p {
+    margin-left: 5px;
+}
+
+.home__navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

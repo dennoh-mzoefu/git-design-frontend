@@ -2,6 +2,7 @@
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
@@ -20,5 +21,34 @@
 .home__navbar {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
+}
+
+.overview {}
+
+.repo {
+    background-color: rgba(110, 110, 202, 0.55);
+    color: white;
+    width: 350px;
+    margin: 20px;
+    /* border: solid 1px; */
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.repo__icons,
+.repo__desc {
+    margin-left: 5px;
+    display: flex;
+
+}
+
+.repo__icons span {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.repo__icons span p {
+    margin-left: 3px;
 }

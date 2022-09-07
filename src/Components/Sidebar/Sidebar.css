@@ -1,9 +1,9 @@
 .logo__image {
     height: 80px;
-    width: 80px;
+    /* width: 80px; */
     margin: 0;
     padding: 0;
-    background-color: blue;
+    /* background-color: blue; */
     border-radius: 50%;
 }
 

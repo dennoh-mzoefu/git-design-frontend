@@ -6,8 +6,8 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { links } from "../../data/dummy";
 import { useDispatch, useSelector } from "react-redux";
 import { menuVisible } from "../../redux/actions/uiActions";
-import logo from "../../data/logo.png";
-import logo3 from "../../data/logo3.png";
+import logo from "../../data/git-design-logo.png";
+import logo3 from "../../data/git-design-name.png";
 import "./Sidebar.css";
 const Sidebar = () => {
   const initialState = {

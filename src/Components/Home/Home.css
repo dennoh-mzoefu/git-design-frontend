@@ -12,6 +12,7 @@
     flex-direction: row;
     align-items: center;
     padding: 10px 15px;
+    cursor: pointer;
 }
 
 .home__link__nav p {
@@ -51,4 +52,71 @@
 
 .repo__icons span p {
     margin-left: 3px;
+}
+
+.whole__create__repo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.create__repo {
+    margin-top: 50px;
+    padding: 20px;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    border: solid 1px rgba(110, 110, 202, 0.15);
+    box-shadow: 5px 5px 5px 5px rgba(110, 110, 202, 0.55);
+
+}
+
+.input__desc {
+    font-weight: 500;
+}
+
+.repo__guidline {
+    color: gray;
+}
+
+.create__repo h2 {
+    font-weight: 700;
+    font-size: large;
+    /* margin-top: 15px; */
+}
+
+.create__repo__form {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center;
+    justify-content: center; */
+}
+
+.create__repo__input {
+    margin-bottom: 20px;
+    max-width: 400px;
+    min-height: 2rem;
+    border-radius: 3px;
+    border: solid 1px rgba(0, 0, 0, 0.1);
+}
+
+.owner__repo__name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.repo__divider {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.upload__file__btn {
+    padding: 5px 8px;
+    border-radius: 2px;
+    width: fit-content;
+    border: solid 1px rgba(110, 110, 202, 0.15);
+    box-shadow: 5px 5px 5px 5px rgba(110, 110, 202, 0.55);
+    /* background-color: brown; */
 }

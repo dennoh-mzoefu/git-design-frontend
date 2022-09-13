@@ -3,17 +3,8 @@ import React from "react";
 function CreateProject() {
   return (
     <div>
-      <iframe
-        width="420"
-        height="315"
-        src="https://www.youtube.com/embed/eI4an8aSsgw"
-      ></iframe>
-      <iframe
-        style={{ borderColor: "black", border: "solid" }}
-        src="http://kidcreatorsteam.com"
-        width="700px"
-        height="700px"
-      ></iframe>
+      project name description about project invite project members through :
+      member username member project coverage
     </div>
   );
 }

@@ -9,6 +9,7 @@ import { menuVisible } from "../../redux/actions/uiActions";
 import logo from "../../data/git-design-logo.png";
 import logo3 from "../../data/git-design-name.png";
 import "./Sidebar.css";
+import Svg from "../DesignLogo/Git-design-logo";
 const Sidebar = () => {
   const initialState = {
     chat: false,
@@ -44,7 +45,8 @@ const Sidebar = () => {
               className="flex items-center gap-b mt-4  ml-3 text-xl font-extrabold tracking-tight dark:text-white text-slate-900"
               onClick={() => handleCloseSideBar}
             >
-              <img className="logo__image" src={logo} alt="logo" />
+              <Svg />
+              {/* <img className="logo__image" src={logo} alt="logo" /> */}
               <img className="logo__text" src={logo3} alt="logo text" />
             </Link>
             <TooltipComponent content="Menu" position="BottomCenter">

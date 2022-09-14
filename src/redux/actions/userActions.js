@@ -1,4 +1,13 @@
-import { FETCH_ALL, CREATE, UPDATE, DELETE, FETCH_USER, ERROR } from "./types";
+import {
+  FETCH_ALL,
+  CREATE,
+  UPDATE,
+  DELETE,
+  FETCH_USER,
+  ERROR,
+  LOGIN,
+  LOGOUT,
+} from "./types";
 
 import * as api from "../api/index.js";
 
@@ -9,7 +18,7 @@ export const getUsers = () => async (dispatch) => {
     dispatch({ type: FETCH_ALL, payload: data });
   } catch (error) {
     dispatch({ type: ERROR, payload: error.message });
-    console.log(error.message);
+    // console.log(error.message);
   }
 };
 export const getUser = (id) => async (dispatch) => {
@@ -19,7 +28,7 @@ export const getUser = (id) => async (dispatch) => {
     dispatch({ type: FETCH_USER, payload: data });
   } catch (error) {
     dispatch({ type: ERROR, payload: error.message });
-    console.log(error);
+    // console.log(error);
   }
 };
 
@@ -28,6 +37,29 @@ export const createUser = (user) => async (dispatch) => {
     const { data } = await api.createUser(user);
 
     dispatch({ type: CREATE, payload: data });
+    // JSON.parse(localStorage.setItem("auth", true));
+    // JSON.parse(localStorage.setItem("user", user));
+  } catch (error) {
+    // console.log(error.message);
+  }
+};
+export const login = (user) => async (dispatch) => {
+  try {
+    const { data } = await api.login(user);
+
+    dispatch({ type: LOGIN, payload: data });
+    localStorage.setItem("user", JSON.parse(data));
+    console.log({ data });
+    // localStorage.setItem("auth", true);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+export const logout = () => async (dispatch) => {
+  try {
+    dispatch({ type: LOGOUT, payload: false });
+    // localStorage.setItem("user", "");
+    // localStorage.setItem("auth", false);
   } catch (error) {
     console.log(error.message);
   }

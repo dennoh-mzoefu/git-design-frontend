@@ -6,6 +6,7 @@ import {
   FETCH_USER,
   CREATE,
   LOGIN,
+  LOGOUT,
 } from "../actions/types";
 
 const initialState = {
@@ -21,13 +22,13 @@ export default (state = initialState, action) => {
       return { ...state, error: payload };
     case CREATE:
       console.log(payload);
-      return { ...state, user: payload };
+      return { ...state, user: payload, auth: true };
     case FETCH_USER:
       console.log(payload);
       return { ...state, user: payload };
     case LOGIN:
       console.log(payload);
-      return { ...state, user: payload };
+      return { ...state, user: payload, auth: true };
     case UPDATE:
       console.log(payload);
       return { ...state, user: payload };

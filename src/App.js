@@ -16,6 +16,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
 import PreApp from "./PreApp";
+import { fetchUserLocalStorage } from "./redux/actions/userActions";
 
 // toast.configure();
 function App() {
@@ -23,15 +24,18 @@ function App() {
   const dispatch = useDispatch();
   const { error, auth } = useSelector((state) => state.userReducer);
 
-  useEffect(() => {
-    {
-      toast.error(error);
-    }
-  }, [error]);
-  useEffect(() => {
-    var user = localStorage.getItem("user");
-    var auth = localStorage.getItem("auth");
-  }, [auth]);
+  // useEffect(() => {
+  //   {
+  //     toast.error(error);
+  //   }
+  // }, [error]);
+  // useEffect(() => {
+  //   var user = localStorage.getItem("user");
+  //   console.log(user);
+  //   var auth = localStorage.getItem("auth");
+  //   const data = { user, auth };
+  //   dispatch(fetchUserLocalStorage(data));
+  // }, [auth]);
 
   return (
     <div>

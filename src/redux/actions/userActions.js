@@ -7,6 +7,7 @@ import {
   ERROR,
   LOGIN,
   LOGOUT,
+  FETCH_USER__LOCAL__STORAGE,
 } from "./types";
 
 import * as api from "../api/index.js";
@@ -48,11 +49,11 @@ export const login = (user) => async (dispatch) => {
     const { data } = await api.login(user);
 
     dispatch({ type: LOGIN, payload: data });
-    localStorage.setItem("user", JSON.parse(data));
+    localStorage.setItem("user", JSON.stringify(data));
     console.log({ data });
     // localStorage.setItem("auth", true);
   } catch (error) {
-    console.log(error.message);
+    console.log(JSON.stringify(error.message));
   }
 };
 export const logout = () => async (dispatch) => {
@@ -88,5 +89,9 @@ export const deleteUser = (id) => async (dispatch) => {
 
 export const error = (error) => async (dispatch) => {
   dispatch({ type: ERROR, payload: error });
-  console.log({ error });
+  console.log(JSON.stringify(error));
+};
+export const fetchUserLocalStorage = (data) => async (dispatch) => {
+  dispatch({ type: FETCH_USER__LOCAL__STORAGE, payload: data });
+  // console.log(JSON.parse(data));
 };

@@ -30,7 +30,7 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 
 const Navbar = () => {
   const { sideBarVisibility } = useSelector((state) => state.sideBarVisibility);
-  const { user } = useSelector((state) => state.userReducer);
+  const { user, auth } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
   const initialState = {
     chat: false,
@@ -67,7 +67,7 @@ const Navbar = () => {
     dispatch(menuVisible(true));
     console.log({ sideBarVisibility });
   };
-
+  console.log(user.name);
   return (
     <div className="flex justify-between p-2 md:mx-6 relative">
       <div onClick={handleActiveMenu}>
@@ -88,22 +88,24 @@ const Navbar = () => {
           color="blue"
           icon={<RiNotification3Line />}
         />
-        <TooltipComponent content="profile" position="BottomCenter">
-          <div
-            className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
-            onClick={() => handleClick("userProfile")}
-          >
-            <img src={avatar} className="rounded-full w-8 h-8" />
-            <p>
-              <span className="text-gray-400 text-14 ">Hi</span>
-              {""}
-              <span className="text-gray-400 text-14 font-bold  ml-1">
-                {user.name}
-              </span>
-            </p>
-            <MdKeyboardArrowDown className="text-gray text-14" />
-          </div>
-        </TooltipComponent>
+        {auth && (
+          <TooltipComponent content="profile" position="BottomCenter">
+            <div
+              className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
+              onClick={() => handleClick("userProfile")}
+            >
+              <img src={avatar} className="rounded-full w-8 h-8" />
+              <p>
+                <span className="text-gray-400 text-14 ">Hi</span>
+                {""}
+                <span className="text-gray-400 text-14 font-bold  ml-1">
+                  {user.name}
+                </span>
+              </p>
+              <MdKeyboardArrowDown className="text-gray text-14" />
+            </div>
+          </TooltipComponent>
+        )}
         {/* {isClicked.cart && "Cart"} */}
         {isClicked.chat && "Chat"}
         {isClicked.notification && "Notification"}

@@ -14,6 +14,8 @@ import LandingPage from "./Components/LandingPage/LandingPage";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
+import { fetchUserLocalStorage } from "./redux/actions/userActions";
+import CreateDesignFile from "./Components/Home/CreateDesignFile/CreateDesignFile";
 
 // toast.configure();
 function PreApp() {
@@ -29,7 +31,11 @@ function PreApp() {
   }, [error]);
   useEffect(() => {
     var user = localStorage.getItem("user");
+    console.log(JSON.parse(user));
+    user = JSON.parse(user);
     var auth = localStorage.getItem("auth");
+    const data = { user, auth };
+    dispatch(fetchUserLocalStorage(data));
   }, [auth]);
 
   return (
@@ -77,6 +83,10 @@ function PreApp() {
               <Route path="/kanban" element={<Kanban />} />
               <Route path="/activity-Log" element={<Calendar />} />
               <Route path="/create-Project" element={<CreateProject />} />
+              <Route
+                path="/home/projectName/create-design-file"
+                element={<CreateDesignFile />}
+              />
               {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
             </Routes>
           </div>

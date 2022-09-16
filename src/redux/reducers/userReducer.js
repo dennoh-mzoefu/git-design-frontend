@@ -7,6 +7,7 @@ import {
   CREATE,
   LOGIN,
   LOGOUT,
+  FETCH_USER__LOCAL__STORAGE,
 } from "../actions/types";
 
 const initialState = {
@@ -18,7 +19,7 @@ export default (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case ERROR:
-      console.log(payload);
+      console.log(JSON.stringify(payload));
       return { ...state, error: payload };
     case CREATE:
       console.log(payload);
@@ -29,6 +30,9 @@ export default (state = initialState, action) => {
     case LOGIN:
       console.log(payload);
       return { ...state, user: payload, auth: true };
+    case FETCH_USER__LOCAL__STORAGE:
+      console.log(payload);
+      return { ...state, user: payload.user, auth: payload.auth };
     case UPDATE:
       console.log(payload);
       return { ...state, user: payload };

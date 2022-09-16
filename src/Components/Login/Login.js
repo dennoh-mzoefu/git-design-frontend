@@ -13,13 +13,14 @@ function Login() {
     email,
     password,
   };
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
     dispatch(login(user))
       .then(() => {
-        JSON.parse(localStorage.setItem("auth", true));
-        navigate("/home");
+        JSON.stringify(localStorage.setItem("auth", true));
+        navigate("/user/home");
       })
-      .catch((err) => dispatch(error(err)).log(err));
+      .catch((err) => dispatch(error(err)));
   };
   return (
     <div>
@@ -36,30 +37,32 @@ function Login() {
             }}
           ></div>
           <div className="brand-title">LOGIN</div>
-          <div className="inputs">
-            <label>EMAIL</label>
-            <input
-              type="email"
-              placeholder="example@test.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <label>PASSWORD</label>
-            <input
-              type="password"
-              placeholder="Min 6 charaters long"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <div className="above__button">
-              <button onClick={handleLogin}>LOGIN</button>
+          <form>
+            <div className="inputs">
+              <label>EMAIL</label>
+              <input
+                type="email"
+                placeholder="example@test.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <label>PASSWORD</label>
+              <input
+                type="password"
+                placeholder="Min 6 charaters long"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <div className="above__button">
+                <button onClick={handleLogin}>LOGIN</button>
+              </div>
+              <Link to="/register">
+                <p className="register__link">
+                  Do not have an account? Register here
+                </p>
+              </Link>
             </div>
-            <Link to="/register">
-              <p className="register__link">
-                Do not have an account? Register here
-              </p>
-            </Link>
-          </div>
+          </form>
         </div>
       </div>
     </div>

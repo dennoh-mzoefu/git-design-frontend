@@ -66,7 +66,7 @@ const Sidebar = () => {
                 {item.links.map((link) => (
                   <NavLink
                     onClick={handleCloseSideBar}
-                    to={`/${link.name}`}
+                    to={`/user/${link.name}`}
                     key={link.name}
                     className={({ isActive }) =>
                       isActive ? activeLink : normalLink

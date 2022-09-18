@@ -41,7 +41,7 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/user/*" element={<PreApp />} />
+          <Route path="/:name/*" element={<PreApp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<LandingPage />} />

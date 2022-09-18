@@ -16,6 +16,12 @@ import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
 import { fetchUserLocalStorage } from "./redux/actions/userActions";
 import CreateDesignFile from "./Components/Home/CreateDesignFile/CreateDesignFile";
+import {
+  fetchProjectLocalStorage,
+  getProjects,
+} from "./redux/actions/projectActions";
+import { useParams } from "react-router-dom";
+import { getDesignFiles } from "./redux/actions/designFileActions";
 
 // toast.configure();
 function PreApp() {
@@ -23,12 +29,14 @@ function PreApp() {
   // const auth = true;
   const dispatch = useDispatch();
   const { error, auth } = useSelector((state) => state.userReducer);
-
+  const { project } = useSelector((state) => state.projectReducer);
+  const { name } = useParams();
   useEffect(() => {
     {
       toast.error(error);
     }
   }, [error]);
+
   useEffect(() => {
     var user = localStorage.getItem("user");
     console.log(JSON.parse(user));
@@ -36,6 +44,12 @@ function PreApp() {
     var auth = localStorage.getItem("auth");
     const data = { user, auth };
     dispatch(fetchUserLocalStorage(data));
+    dispatch(getProjects());
+
+    dispatch(getDesignFiles());
+    // fetch project from local storage
+    var project = localStorage.getItem("project");
+    dispatch(fetchProjectLocalStorage(project));
   }, [auth]);
 
   return (
@@ -84,7 +98,7 @@ function PreApp() {
               <Route path="/activity-Log" element={<Calendar />} />
               <Route path="/create-Project" element={<CreateProject />} />
               <Route
-                path="/home/projectName/create-design-file"
+                path="/projectName/create-design-file"
                 element={<CreateDesignFile />}
               />
               {/* <Route path="*" element={<Navigate to="/" replace />} /> */}

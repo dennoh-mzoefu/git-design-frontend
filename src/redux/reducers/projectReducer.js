@@ -5,6 +5,7 @@ import {
   UPDATE_PROJECT,
   FETCH_PROJECTS,
   DELETE__PROJECT,
+  FETCH_PROJECT__LOCAL__STORAGE,
 } from "../actions/types";
 
 const initialState = {
@@ -22,6 +23,9 @@ export default (state = initialState, action) => {
       console.log(payload);
       return { ...state, project: payload };
     case FETCH_PROJECT:
+      console.log(payload);
+      return { ...state, project: payload };
+    case FETCH_PROJECT__LOCAL__STORAGE:
       console.log(payload);
       return { ...state, project: payload };
     case FETCH_PROJECTS:

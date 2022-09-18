@@ -21,7 +21,7 @@ function CreateRepo() {
     dispatch(createProject(project))
       .then(() => {
         JSON.stringify(localStorage.setItem("project", project));
-        navigate("/home/projectName/create-design-file");
+        navigate("/user/projectName/create-design-file");
       })
       .catch((err) => dispatch(error(err)));
   };

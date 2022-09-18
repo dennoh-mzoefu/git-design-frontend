@@ -4,6 +4,7 @@ import {
   CREATE_PROJECT,
   UPDATE_PROJECT,
   DELETE__PROJECT,
+  FETCH_PROJECT__LOCAL__STORAGE,
   ERROR,
 } from "./types";
 
@@ -59,4 +60,9 @@ export const deleteProject = (id) => async (dispatch) => {
     dispatch({ type: ERROR, payload: error.message });
     console.log(error.message);
   }
+};
+
+export const fetchProjectLocalStorage = (data) => async (dispatch) => {
+  dispatch({ type: FETCH_PROJECT__LOCAL__STORAGE, payload: JSON.parse(data) });
+  // console.log(JSON.parse(data));
 };

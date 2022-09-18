@@ -6,8 +6,9 @@ import {
   DELETE__DESIGN__FILE,
   ERROR,
 } from "./types";
-
 import * as api from "../api/index.js";
+// import { toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
 export const getDesignFiles = () => async (dispatch) => {
   try {
@@ -32,11 +33,12 @@ export const getDesignFile = (name) => async (dispatch) => {
 
 export const createDesignFile = (designFile) => async (dispatch) => {
   try {
-    const { data } = await api.createDesignFile(designFile);
+    console.log(designFile);
+    const { data } = await api.createDesign_File(designFile);
 
     dispatch({ type: CREATE_DESIGN__FILE, payload: data });
   } catch (error) {
-    // console.log(error.message);
+    console.log(error);
   }
 };
 

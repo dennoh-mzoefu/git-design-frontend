@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useParams } from "react-router-dom";
 import { SiShopware } from "react-icons/si";
 import { MdOutlineCancel } from "react-icons/md";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
@@ -18,7 +18,9 @@ const Sidebar = () => {
     notifiactiono: false,
   };
   const dispatch = useDispatch();
+  const { name } = useParams();
   const { sideBarVisibility } = useSelector((state) => state.sideBarVisibility);
+  const { user } = useSelector((state) => state.userReducer);
   const [isClicked, setIsClicked] = useState(initialState);
   const [screenSize, setScreenSize] = useState(undefined);
   console.log({ sideBarVisibility });
@@ -66,7 +68,7 @@ const Sidebar = () => {
                 {item.links.map((link) => (
                   <NavLink
                     onClick={handleCloseSideBar}
-                    to={`/user/${link.name}`}
+                    to={`/${name}/${link.name}`}
                     key={link.name}
                     className={({ isActive }) =>
                       isActive ? activeLink : normalLink

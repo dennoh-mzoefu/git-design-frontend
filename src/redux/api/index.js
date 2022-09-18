@@ -25,11 +25,12 @@ export const updateUser = (id, updatedUser) =>
   axios.patch(`${url_auth}/${id}`, updatedUser);
 export const deleteUser = (id) => axios.delete(`${url_auth}/${id}`);
 
-const design__file__auth = "http://localhost:5000/design__file";
+const design__file__auth = "http://localhost:5000/designFile";
 
 export const fetchDesignFiles = () => axios.get(design__file__auth);
-export const createDesignFile = (newDesignFile) =>
-  axios.post(`${design__file__auth}/register`, newDesignFile);
+export const createDesign_File = (designFile) =>
+  axios.post(`${design__file__auth}/create`, designFile);
+
 export const fetchDesignFile = (id) => axios.get(`${design__file__auth}/${id}`);
 export const updateDesignFile = (id, updatedDesignFile) =>
   axios.patch(`${design__file__auth}/${id}`, updatedDesignFile);

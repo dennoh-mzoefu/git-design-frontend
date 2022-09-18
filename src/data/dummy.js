@@ -544,7 +544,7 @@ export const links = [
         icon: <AiOutlineStock />,
       },
       {
-        name: "Twitter",
+        name: "Faqs",
         icon: <AiOutlineAreaChart />,
       },
     ],

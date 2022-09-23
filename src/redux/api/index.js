@@ -36,3 +36,6 @@ export const updateDesignFile = (id, updatedDesignFile) =>
   axios.patch(`${design__file__auth}/${id}`, updatedDesignFile);
 export const deleteDesignFile = (id) =>
   axios.delete(`${design__file__auth}/${id}`);
+
+const activity__log = "http://localhost:5000/activityLog";
+export const fetchActivityLogs = () => axios.get(activity__log);

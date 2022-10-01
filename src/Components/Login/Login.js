@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { error, login } from "../../redux/actions/userActions";
 import LandingNav from "../LandingNav/LandingNav";
@@ -7,21 +7,26 @@ import "./Style.css";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = {
+  const user1 = {
     email,
     password,
   };
+  const { user } = useSelector((state) => state.userReducer);
   const handleLogin = (e) => {
     e.preventDefault();
-    dispatch(login(user))
+    dispatch(login(user1))
       .then(() => {
         JSON.stringify(localStorage.setItem("auth", true));
-        navigate("/user/home");
+        // console.log(`/${user.name}/home`);
+        // user && navigate(`/${user.name}/home`);
       })
       .catch((err) => dispatch(error(err)));
   };
+  {user && setName("user.name")}
+  {name && navigate(`/${user.name}/home`)}
   return (
     <div>
       <LandingNav />

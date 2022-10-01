@@ -23,6 +23,7 @@ import {
 import { useParams } from "react-router-dom";
 import { getDesignFiles } from "./redux/actions/designFileActions";
 import { getActivityLogs } from "./redux/actions/activityLogActions";
+import { getUser } from "./redux/actions/userActions";
 
 // toast.configure();
 function PreApp() {
@@ -39,15 +40,18 @@ function PreApp() {
   }, [error]);
 
   useEffect(() => {
+    name && dispatch(getUser(name));
+    name && dispatch(getDesignFiles(name));
+    name && dispatch(getActivityLogs());
+  }, [name]);
+  useEffect(() => {
     var user = localStorage.getItem("user");
     user = JSON.parse(user);
     var auth = localStorage.getItem("auth");
     const data = { user, auth };
-    dispatch(fetchUserLocalStorage(data));
+    auth && dispatch(fetchUserLocalStorage(data));
     dispatch(getProjects());
 
-    dispatch(getDesignFiles());
-    dispatch(getActivityLogs());
     // fetch project from local storage
     var project = localStorage.getItem("project");
     dispatch(fetchProjectLocalStorage(project));
@@ -94,10 +98,10 @@ function PreApp() {
             {/* route various components and pages */}
             {/* dashboard */}
             <Routes>
-              <Route path="/home" element={<Home />} />
-              <Route path="/kanban" element={<Kanban />} />
-              <Route path="/activity-Log" element={<Calendar />} />
-              <Route path="/create-Project" element={<CreateProject />} />
+              <Route path="home" element={<Home />} />
+              <Route path="kanban" element={<Kanban />} />
+              <Route path="activity-Log" element={<Calendar />} />
+              <Route path="create-Project" element={<CreateProject />} />
               <Route
                 path="/projectName/create-design-file"
                 element={<CreateDesignFile />}

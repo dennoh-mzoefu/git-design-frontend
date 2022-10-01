@@ -15,6 +15,15 @@
     cursor: pointer;
 }
 
+.repo {
+    max-height: fit-content;
+    max-width: 40vw;
+}
+
+.repo>img {
+    min-height: 40vh;
+}
+
 .home__link__nav p {
     margin-left: 5px;
 }
@@ -26,7 +35,11 @@
     align-items: center;
 }
 
-.overview {}
+.overview {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
 
 .repo {
     background-color: rgba(110, 110, 202, 0.55);

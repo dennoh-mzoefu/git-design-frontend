@@ -10,9 +10,9 @@ import * as api from "../api/index.js";
 // import { toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 
-export const getDesignFiles = () => async (dispatch) => {
+export const getDesignFiles = (name) => async (dispatch) => {
   try {
-    const { data } = await api.fetchDesignFiles();
+    const { data } = await api.fetchDesignFiles(name);
 
     dispatch({ type: FETCH_DESIGN__FILES, payload: data });
   } catch (error) {

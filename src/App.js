@@ -1,6 +1,12 @@
 import "./App.css";
 import Repository from "./Components/Repository/Repository";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useParams,
+} from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { Navbar, Sidebar } from "./Components";
@@ -17,13 +23,17 @@ import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
 import PreApp from "./PreApp";
 import { fetchUserLocalStorage } from "./redux/actions/userActions";
+import { getUser } from "./redux/actions/userActions";
 
 // toast.configure();
 function App() {
   // const auth = true;
   const dispatch = useDispatch();
   const { error, auth } = useSelector((state) => state.userReducer);
-
+  const { name } = useParams();
+  useEffect(() => {
+    name && dispatch(getUser(name));
+  }, [name]);
   // useEffect(() => {
   //   {
   //     toast.error(error);

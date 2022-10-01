@@ -27,7 +27,11 @@ export const deleteUser = (id) => axios.delete(`${url_auth}/${id}`);
 
 const design__file__auth = "http://localhost:5000/designFile";
 
-export const fetchDesignFiles = () => axios.get(design__file__auth);
+export const fetchDesignFiles = (name) => axios.get(design__file__auth,{
+  params:{
+    ownerName:name,
+  }
+});
 export const createDesign_File = (designFile) =>
   axios.post(`${design__file__auth}/create`, designFile);
 

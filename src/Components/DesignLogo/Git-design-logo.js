@@ -6,7 +6,7 @@ function Svg() {
       <svg
         version="1.0"
         xmlns="http://www.w3.org/2000/svg"
-        width="201.000000pt"
+        width="175.000000pt"
         height="50.000000pt"
         viewBox="0 0 331.000000 181.000000"
         preserveAspectRatio="xMidYMid meet"

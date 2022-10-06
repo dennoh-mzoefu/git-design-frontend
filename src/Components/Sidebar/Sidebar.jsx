@@ -33,6 +33,7 @@ const Sidebar = () => {
     dispatch(menuVisible(false));
     console.log({ sideBarVisibility });
   };
+  const homeLink = `/${user}`;
   const activeLink =
     "bg-main-dark-bg flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2";
   const normalLink =
@@ -43,15 +44,15 @@ const Sidebar = () => {
         <>
           <div className="flex justify-between items-center">
             <Link
-              to="/"
-              className="flex items-center gap-b mt-4  ml-3 text-xl font-extrabold tracking-tight dark:text-white text-slate-900"
+              to={homeLink}
+              className="flex items-center p-0 gap-b mt-4  mr-0  text-xl font-extrabold tracking-tight dark:text-white text-slate-900"
               onClick={() => handleCloseSideBar}
             >
               <Svg />
               {/* <img className="logo__image" src={logo} alt="logo" /> */}
-              <img className="logo__text" src={logo3} alt="logo text" />
+              {/* <img className="logo__text" src={logo3} alt="logo text" /> */}
             </Link>
-            <TooltipComponent content="Menu" position="BottomCenter">
+            <TooltipComponent content="close" position="BottomCenter">
               <button
                 type="button"
                 onClick={closeSideBar}

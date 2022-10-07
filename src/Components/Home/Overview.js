@@ -18,7 +18,10 @@ function Overview() {
     console.log(date.slice(0, 20));
     dateString = date.slice(0, 10) + " " + date.slice(15, 20);
   };
-
+  const handleSrc = (url) => {
+    const path = `D:/react projects/git-design/backend/${url}`;
+    return path.toString();
+  };
   return (
     <div className="overview">
       {design__files &&
@@ -26,7 +29,18 @@ function Overview() {
           return (
             <Fragment key={file.lastModified}>
               <div className="repo" onLoad={handleDate(file.lastModified)}>
-                <img alt="repo thumbnail" src={file.thumbnailUrl} />
+                {/* <img
+                  alt="repo thumbnail"
+                  src={require(handleSrc(file.thumbnailUrl)).default}
+                /> */}
+                <img
+                  alt="repo thumbnail"
+                  src={require(`./images/thumbnail/${file.thumbnail}`)}
+                />
+                {console.log(handleSrc(file.thumbnailUrl))}
+                {/* D:\react projects\git-design\backend */}
+                {/* D:/react
+                projects/git-design/backend/images/thumbnail/1665133528405.png */}
                 <div className="repo__icons">
                   <span>
                     <FaEye />

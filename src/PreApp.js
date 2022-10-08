@@ -6,7 +6,7 @@ import { Navbar, Sidebar } from "./Components";
 import { useSelector, useDispatch } from "react-redux";
 import Kanban from "./Components/Kanban/Kanban";
 import Calendar from "./Components/Calendar/Calendar";
-import CreateProject from "./Components/CreateProject/CreateProject";
+import CreateRepo from "./Components/CreateProject/CreateRepo";
 import Home from "./Components/Home/Home";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
@@ -15,7 +15,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
 import { fetchUserLocalStorage } from "./redux/actions/userActions";
-import CreateDesignFile from "./Components/Home/CreateDesignFile/CreateDesignFile";
+// import CreateDesignFile from "./Components/Home/CreateDesignFile/CreateDesignFile";
 import {
   fetchProjectLocalStorage,
   getProjects,
@@ -24,6 +24,7 @@ import { useParams } from "react-router-dom";
 import { getDesignFiles } from "./redux/actions/designFileActions";
 import { getActivityLogs } from "./redux/actions/activityLogActions";
 import { getUser } from "./redux/actions/userActions";
+import CreateDesignFile from "./Components/CreateProject/CreateDesignFile/CreateDesignFile";
 
 // toast.configure();
 function PreApp() {
@@ -101,7 +102,7 @@ function PreApp() {
               <Route path="home" element={<Home />} />
               <Route path="kanban" element={<Kanban />} />
               <Route path="activity-Log" element={<Calendar />} />
-              <Route path="create-Project" element={<CreateProject />} />
+              <Route path="create-Project" element={<CreateRepo />} />
               <Route
                 path="/projectName/create-design-file"
                 element={<CreateDesignFile />}

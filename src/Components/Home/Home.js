@@ -3,7 +3,7 @@ import { FiBookOpen } from "react-icons/fi";
 import { GrDocumentStore } from "react-icons/gr";
 import { useParams } from "react-router-dom";
 import { AiOutlineAppstoreAdd } from "react-icons/ai";
-import CreateRepo from "./CreateRepo";
+// import CreateRepo from "./CreateRepo";
 import Overview from "./Overview";
 import Repositories from "./Repositories";
 import "./Home.css";
@@ -56,8 +56,8 @@ function Home() {
         </div>
       </div>
       {homeNavBtn === "overview" && <Overview />}
-      {homeNavBtn === "createRepo" && <CreateRepo />}
       {homeNavBtn === "repositories" && <Repositories />}
+      {/* {homeNavBtn === "createRepo" && <CreateRepo />} */}
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { FaRegCommentDots } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 import "./Home.css";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useResolvedPath } from "react-router-dom";
 
 function Overview() {
   const { user } = useParams();
@@ -19,7 +19,7 @@ function Overview() {
     dateString = date.slice(0, 10) + " " + date.slice(15, 20);
   };
   const handleSrc = (url) => {
-    const path = `D:/react projects/git-design/backend/${url}`;
+    const path = `./images/thumbnail/${url}.png`;
     return path.toString();
   };
   return (
@@ -29,18 +29,14 @@ function Overview() {
           return (
             <Fragment key={file.lastModified}>
               <div className="repo" onLoad={handleDate(file.lastModified)}>
-                {/* <img
-                  alt="repo thumbnail"
-                  src={require(handleSrc(file.thumbnailUrl)).default}
-                /> */}
+                {console.log(handleSrc(file?.thumbnailUrl))}
+
                 <img
                   alt="repo thumbnail"
-                  src={require(`./images/thumbnail/${file.thumbnail}`)}
+                  src={`${window.location.origin}/images/thumbnail/${file.thumbnailUrl}.png`}
+                  // src={require("./images/thumbnail/1665215824439.png")}
                 />
-                {console.log(handleSrc(file.thumbnailUrl))}
-                {/* D:\react projects\git-design\backend */}
-                {/* D:/react
-                projects/git-design/backend/images/thumbnail/1665133528405.png */}
+
                 <div className="repo__icons">
                   <span>
                     <FaEye />
@@ -52,7 +48,7 @@ function Overview() {
                   </span>
                 </div>
                 <div className="repo__desc">
-                  <p>{file.description}</p>
+                  <p>{file?.description}</p>
                 </div>
                 <div className="repo__desc">
                   <p>last modified: {dateString}</p>

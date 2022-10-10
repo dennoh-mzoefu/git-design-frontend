@@ -2,3 +2,22 @@
     background-color: rgba(157, 157, 197, 0.1);
     min-height: 95vh;
 } */
+.project__nav {
+    /* background-color: rgba(229, 229, 253, 0.1); */
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+
+}
+
+.project__nav__button {
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.project__nav__button>p {
+    padding-left: 3px;
+}

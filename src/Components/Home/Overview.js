@@ -15,7 +15,7 @@ function Overview() {
     n = Number(n); // cast it to a Number
     var date = new Date(n);
     date = JSON.stringify(date);
-    console.log(date.slice(0, 20));
+    // console.log(date.slice(0, 20));
     dateString = date.slice(0, 10) + " " + date.slice(15, 20);
   };
   const handleSrc = (url) => {
@@ -29,7 +29,7 @@ function Overview() {
           return (
             <Fragment key={file.lastModified}>
               <div className="repo" onLoad={handleDate(file.lastModified)}>
-                {console.log(handleSrc(file?.thumbnailUrl))}
+                {/* {console.log(handleSrc(file?.thumbnailUrl))} */}
 
                 <img
                   alt="repo thumbnail"

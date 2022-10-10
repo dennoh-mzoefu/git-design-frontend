@@ -142,3 +142,56 @@
     align-items: center;
     justify-content: center;
 }
+
+.project__card {
+    padding: 5px;
+    margin-top: 10px;
+    margin-left: 35px;
+    margin-right: 25px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    width: 33vw;
+    min-height: 15vh;
+    border: solid 1px rgba(110, 110, 202, 0.15);
+}
+
+.project__name {
+    display: flex;
+    flex-direction: row;
+}
+
+.date__created>button>small {
+    padding: 0;
+    margin-right: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4%;
+    background-color: rgba(110, 110, 202, 0.55);
+    color: aliceblue;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.55);
+}
+
+.repositories {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.date__created {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.project__card>div {
+    margin: 7px 0;
+}
+
+.icon {
+    font-size: large;
+    color: rgba(110, 110, 202, 0.95);
+}
+
+.date__created>p {
+    display: flex;
+}

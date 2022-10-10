@@ -23,7 +23,7 @@ const Sidebar = () => {
   const { user } = useSelector((state) => state.userReducer);
   const [isClicked, setIsClicked] = useState(initialState);
   const [screenSize, setScreenSize] = useState(undefined);
-  console.log({ sideBarVisibility });
+  // console.log({ sideBarVisibility });
   const handleCloseSideBar = () => {
     if (sideBarVisibility && screenSize <= 900) {
       dispatch(menuVisible(false));
@@ -31,7 +31,7 @@ const Sidebar = () => {
   };
   const closeSideBar = () => {
     dispatch(menuVisible(false));
-    console.log({ sideBarVisibility });
+    // console.log({ sideBarVisibility });
   };
   const homeLink = `/${user}`;
   const activeLink =

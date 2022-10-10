@@ -41,7 +41,7 @@ function Home() {
           <GrDocumentStore />
           <p>Repositories</p>
         </div>
-        <div
+        {/* <div
           className="home__link__nav"
           style={{
             borderBottom:
@@ -53,7 +53,7 @@ function Home() {
         >
           <AiOutlineAppstoreAdd />
           <p>Create Repo</p>
-        </div>
+        </div> */}
       </div>
       {homeNavBtn === "overview" && <Overview />}
       {homeNavBtn === "repositories" && <Repositories />}

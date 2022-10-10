@@ -2,9 +2,11 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { GoPrimitiveDot } from "react-icons/go";
 import "./Home.css";
+import { Link, NavLink } from "react-router-dom";
 
 function Repositories() {
   const { projects } = useSelector((state) => state.projectReducer);
+  const { user } = useSelector((state) => state.userReducer);
   let dateString = "";
   const handleDate = (d) => {
     var n = Date.parse(d);
@@ -38,9 +40,12 @@ function Repositories() {
                   <GoPrimitiveDot className="icon" />
                   <small>Date created:&#160;&#160; {dateString}</small>
                 </p>
-                <button>
-                  <small>more</small>
-                </button>
+                <NavLink to={`/${user.name}/${project.projectName}`}>
+                  {/* <Link to={project.projectName}> */}
+                  <button>
+                    <small>more</small>
+                  </button>
+                </NavLink>
               </div>
             </div>
           );

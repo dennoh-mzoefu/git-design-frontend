@@ -75,6 +75,7 @@
 }
 
 .create__repo {
+    background-color: white;
     margin-top: 50px;
     padding: 20px;
     width: fit-content;

@@ -25,6 +25,7 @@ import { getDesignFiles } from "./redux/actions/designFileActions";
 import { getActivityLogs } from "./redux/actions/activityLogActions";
 import { getUser } from "./redux/actions/userActions";
 import CreateDesignFile from "./Components/CreateProject/CreateDesignFile/CreateDesignFile";
+import ProjectManager from "./Components/ProjectManager/ProjectManager";
 
 // toast.configure();
 function PreApp() {
@@ -95,7 +96,7 @@ function PreApp() {
             <Navbar />
           </div>
 
-          <div>
+          <div className="routes">
             {/* route various components and pages */}
             {/* dashboard */}
             <Routes>
@@ -103,6 +104,7 @@ function PreApp() {
               <Route path="kanban" element={<Kanban />} />
               <Route path="activity-Log" element={<Calendar />} />
               <Route path="create-Project" element={<CreateRepo />} />
+              <Route path="/:projectName" element={<ProjectManager />} />
               <Route
                 path="/projectName/create-design-file"
                 element={<CreateDesignFile />}

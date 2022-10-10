@@ -20,6 +20,12 @@ body {
     }
 }
 
+.routes {
+    /* background-color: rgba(157, 157, 197, 0.1); */
+    background-color: rgba(185, 185, 255, 0.1);
+    min-height: 95vh;
+}
+
 .e-dlg-center-center,
 .e-quick-popup-wrapper.e-device {
     z-index: 1000000 !important;

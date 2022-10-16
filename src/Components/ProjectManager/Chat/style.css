@@ -1,0 +1,10 @@
+.message {
+    background-color: #e3effd;
+    padding: 5px;
+    border-radius: 6px;
+}
+
+.left__chat {
+    display: flex;
+    justify-self: flex-end;
+}

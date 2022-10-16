@@ -2,6 +2,7 @@
     background-color: rgba(157, 157, 197, 0.1);
     min-height: 95vh;
 } */
+
 .project__nav {
     /* background-color: rgba(229, 229, 253, 0.1); */
     display: flex;
@@ -20,4 +21,9 @@
 
 .project__nav__button>p {
     padding-left: 3px;
+}
+
+.project__manager__body {
+    display: flex;
+    justify-content: space-between;
 }

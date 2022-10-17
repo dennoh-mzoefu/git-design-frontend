@@ -5,6 +5,7 @@ import {
   UPDATE_DESIGN__FILE,
   DELETE__DESIGN__FILE,
   ERROR,
+  FETCH___PROJECT__DESIGN__FILE,
 } from "./types";
 import * as api from "../api/index.js";
 // import { toast } from "react-toastify";
@@ -20,6 +21,17 @@ export const getDesignFiles = (name) => async (dispatch) => {
     // console.log(error.message);
   }
 };
+export const getProjectDesignFiles =
+  (name, projectName) => async (dispatch) => {
+    try {
+      const { data } = await api.fetchProjectDesignFiles(name, projectName);
+
+      dispatch({ type: FETCH___PROJECT__DESIGN__FILE, payload: data });
+    } catch (error) {
+      dispatch({ type: ERROR, payload: error.message });
+      // console.log(error.message);
+    }
+  };
 export const getDesignFile = (name) => async (dispatch) => {
   try {
     const { data } = await api.fetchDesignFile(name);

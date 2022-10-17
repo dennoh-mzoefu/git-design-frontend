@@ -5,6 +5,7 @@ import { FaTasks } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getProject } from "../../redux/actions/projectActions";
+import { getProjectDesignFiles } from "../../redux/actions/designFileActions";
 import "./style.css";
 import Chat from "./Chat/Chat";
 import Collaborators from "./Collaborators/Collaborators";
@@ -13,6 +14,7 @@ import DesignFiles from "./Files/DesignFiles";
 function ProjectManager() {
   const [displayHome, setDisplayHome] = useState("files");
   const { projectName } = useParams();
+  const { user } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
   useEffect(() => {
     projectName && dispatch(getProject(projectName));
@@ -23,6 +25,11 @@ function ProjectManager() {
   //   e.preventDefault();
   //   setDisplayHome
   // }
+  useEffect(() => {
+    user &&
+      projectName &&
+      dispatch(getProjectDesignFiles({ name: project.name, projectName }));
+  }, [user, projectName]);
   return (
     <div className="project__manager">
       <div className="left__project__part">
@@ -56,7 +63,7 @@ function ProjectManager() {
           <div>
             {displayHome === "files" && project && (
               <div>
-                <DesignFiles />
+                <DesignFiles project={project} />
               </div>
             )}
             {displayHome === "tasks" && project && <div>{project.date}</div>}

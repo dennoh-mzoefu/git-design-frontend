@@ -6,7 +6,7 @@ import "./style.css";
 function DesignFiles({ project }) {
   const { name, projectName } = useParams();
   const { design__files } = useSelector((state) => state.designFileReducer);
-
+  console.log(design__files)
   return (
     <div>
       {design__files &&

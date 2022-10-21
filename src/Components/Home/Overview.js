@@ -25,9 +25,9 @@ function Overview() {
   return (
     <div className="overview">
       {design__files &&
-        design__files?.map((file) => {
+        design__files?.map((file, index) => {
           return (
-            <Fragment key={file.lastModified}>
+            <Fragment key={index}>
               <div className="repo" onLoad={handleDate(file.lastModified)}>
                 {/* {console.log(handleSrc(file?.thumbnailUrl))} */}
 

@@ -35,3 +35,7 @@ export const FETCH_PROJECT__LOCAL__STORAGE = "FETCH_PROJECT__LOCAL__STORAGE";
 
 //activity log
 export const FETCH__ACTIVITY__LOGS = "FETCH__ACTIVITY__LOGS";
+
+//chat
+export const FETCH__CHATS = "FETCH__CHATS";
+export const SAVE__CHATS = "SAVE__CHATS";

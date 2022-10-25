@@ -51,3 +51,7 @@ export const deleteDesignFile = (id) =>
 
 const activity__log = "http://localhost:5000/activityLog";
 export const fetchActivityLogs = () => axios.get(activity__log);
+
+const chat = "http://localhost:5000/chat";
+export const fetchChats = (room) => axios.get(chat, room);
+export const createChat = (chat) => axios.post(`${chat}/chatSave`, chat);

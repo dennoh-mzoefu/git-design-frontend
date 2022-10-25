@@ -4,6 +4,7 @@ import userReducer from "./userReducer.js";
 import projectReducer from "./projectReducer.js";
 import designFileReducer from "./designFileReducer.js";
 import activityLogReducer from "./activityLogReducer.js";
+import chatReducer from "./chatReducer.js";
 
 export default combineReducers({
   sideBarVisibility,
@@ -11,4 +12,5 @@ export default combineReducers({
   projectReducer,
   designFileReducer,
   activityLogReducer,
+  chatReducer,
 });

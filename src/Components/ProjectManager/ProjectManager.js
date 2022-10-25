@@ -10,6 +10,7 @@ import "./style.css";
 import Chat from "./Chat/Chat";
 import Collaborators from "./Collaborators/Collaborators";
 import DesignFiles from "./Files/DesignFiles";
+import { getChats } from "../../redux/actions/chatActions";
 
 function ProjectManager() {
   const [displayHome, setDisplayHome] = useState("files");
@@ -30,6 +31,9 @@ function ProjectManager() {
       projectName &&
       dispatch(getProjectDesignFiles({ name: project.name, projectName }));
   }, [user, projectName]);
+  useEffect(() => {
+    dispatch(getChats(projectName));
+  });
   return (
     <div className="project__manager">
       <div className="left__project__part">

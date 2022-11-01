@@ -1,17 +1,28 @@
+import axios from "axios";
+import { useSelector } from "react-redux";
+import "./style.css";
 const Table = ({ data }) => {
+  const { project } = useSelector((state) => state.projectReducer);
+  const inviteUser = (name) => {
+    axios.post("http://localhost:5000/notification", project.projectName);
+  };
   return (
     <table>
       <tbody>
         <tr>
-          <th>Name</th>
-          <th>Surname</th>
-          <th>Email</th>
+          <th>pic</th>
+          <th>username</th>
+          <th>Invite</th>
         </tr>
-        {data.map((item) => (
+        {data?.map((item) => (
           <tr key={item.id}>
-            <td>{item.first_name}</td>
-            <td>{item.last_name}</td>
-            <td>{item.email}</td>
+            <td>
+              <img src={item.profilePic} />{" "}
+            </td>
+            <td>{item.name}</td>
+            <td>
+              <button onClick={inviteUser(item.name)}>Invite</button>
+            </td>
           </tr>
         ))}
       </tbody>

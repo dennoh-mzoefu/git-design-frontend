@@ -12,6 +12,7 @@ function Register() {
   const [description, setDescription] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [profilePic, setProfilePic] = useState("");
   // const [error, setError] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ function Register() {
     email,
     description,
     password,
+    profilePic,
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,21 +36,20 @@ function Register() {
       })
       .catch((err) => dispatch(error(err)).log(err));
   };
+  const uploadImage = (files) => {
+    console.log(files[0].name);
+    setProfilePic(files[0].name);
+  };
 
   return (
     <div>
       <LandingNav />
       <div className="register">
         <div className="container">
-          <div
-            className="brand-logo"
-            style={{
-              background: "url('/images/deliveryLogo.png')",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-            }}
-          ></div>
           <div className="brand-title">Sign Up</div>
+          <div className="brand">
+            <input type="file" onChange={(e) => uploadImage(e.target.files)} />
+          </div>
           <div className="inputs">
             <label>USER NAME</label>
             <input

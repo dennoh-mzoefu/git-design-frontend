@@ -68,6 +68,7 @@ const Navbar = () => {
     console.log({ sideBarVisibility });
   };
   console.log(user.name);
+  const path = "../../../public/images/profiles/";
   return (
     <div className="flex justify-between p-2 md:mx-6 relative">
       <div onClick={handleActiveMenu}>
@@ -94,7 +95,10 @@ const Navbar = () => {
               className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
               onClick={() => handleClick("userProfile")}
             >
-              <img src={avatar} className="rounded-full w-8 h-8" />
+              <img
+                src={path + user.profilePic}
+                className="rounded-full w-8 h-8"
+              />
               <p>
                 <span className="text-gray-400 text-14 ">Hi</span>
                 {""}

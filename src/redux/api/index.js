@@ -54,4 +54,13 @@ export const fetchActivityLogs = () => axios.get(activity__log);
 
 const chat = "http://localhost:5000/chat";
 export const fetchChats = (room) => axios.get(chat, room);
-export const createChat = (chat) => axios.post(`${chat}/chatSave`, chat);
+export const createChat = (chat1) => axios.post(`${chat}/chatSave`, chat1);
+
+//NOTIFICATION
+const notification = "http://localhost:5000/notification";
+// export const fetchNotifications = (room) => axios.get(notification, room);
+export const saveNotifications = (chat) => axios.post(`${notification}/`, chat);
+export const fetchNotifications = (chat) =>
+  axios.post(`${notification}/notify`, chat);
+export const acceptNotifications = (data1) =>
+  axios.post(`${notification}/accept`, data1);

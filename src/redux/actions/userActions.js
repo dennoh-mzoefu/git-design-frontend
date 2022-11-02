@@ -1,5 +1,5 @@
 import {
-  FETCH_ALL,
+  FETCH__ALL_USERS,
   CREATE,
   UPDATE,
   DELETE,
@@ -16,7 +16,7 @@ export const getUsers = () => async (dispatch) => {
   try {
     const { data } = await api.fetchUsers();
 
-    dispatch({ type: FETCH_ALL, payload: data });
+    dispatch({ type: FETCH__ALL_USERS, payload: data });
   } catch (error) {
     dispatch({ type: ERROR, payload: error.message });
     // console.log(error.message);

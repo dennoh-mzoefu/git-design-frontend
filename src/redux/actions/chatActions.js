@@ -12,9 +12,9 @@ export const getChats = (room) => async (dispatch) => {
   }
 };
 
-export const saveChats = () => async (dispatch) => {
+export const saveChats = (chat) => async (dispatch) => {
   try {
-    const { data } = await api.createChat();
+    const { data } = await api.createChat(chat);
 
     dispatch({ type: SAVE__CHATS, payload: data });
   } catch (error) {

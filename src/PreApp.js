@@ -23,7 +23,7 @@ import {
 import { useParams } from "react-router-dom";
 import { getDesignFiles } from "./redux/actions/designFileActions";
 import { getActivityLogs } from "./redux/actions/activityLogActions";
-import { getUser } from "./redux/actions/userActions";
+import { getUser, getUsers } from "./redux/actions/userActions";
 import CreateDesignFile from "./Components/CreateProject/CreateDesignFile/CreateDesignFile";
 import ProjectManager from "./Components/ProjectManager/ProjectManager";
 
@@ -59,6 +59,9 @@ function PreApp() {
     dispatch(fetchProjectLocalStorage(project));
   }, [auth]);
 
+  useEffect(() => {
+    dispatch(getUsers());
+  }, [name]);
   return (
     <div>
       <div className="flex relative dark:bg-main-dark-bg">

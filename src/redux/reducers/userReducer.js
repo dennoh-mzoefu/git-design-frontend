@@ -4,6 +4,7 @@ import {
   DELETE,
   FETCH_ALL,
   FETCH_USER,
+  FETCH__ALL_USERS,
   CREATE,
   LOGIN,
   LOGOUT,
@@ -13,6 +14,7 @@ import {
 const initialState = {
   error: "False",
   user: "",
+  users: "",
   auth: false,
 };
 export default (state = initialState, action) => {
@@ -27,6 +29,9 @@ export default (state = initialState, action) => {
     case FETCH_USER:
       console.log(payload);
       return { ...state, user: payload };
+    case FETCH__ALL_USERS:
+      console.log(payload);
+      return { ...state, users: payload };
     case LOGIN:
       console.log(payload);
       return { ...state, user: payload, auth: true };

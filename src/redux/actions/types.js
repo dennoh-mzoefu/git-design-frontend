@@ -12,6 +12,7 @@ export const UPDATE = "UPDATE";
 export const DELETE = "DELETE";
 export const FETCH_ALL = "FETCH_ALL";
 export const FETCH_USER = "FETCH_USER";
+export const FETCH__ALL_USERS = "FETCH__ALL_USERS";
 export const FETCH_USER__LOCAL__STORAGE = "FETCH_USER__LOCAL__STORAGE";
 
 //error
@@ -39,3 +40,8 @@ export const FETCH__ACTIVITY__LOGS = "FETCH__ACTIVITY__LOGS";
 //chat
 export const FETCH__CHATS = "FETCH__CHATS";
 export const SAVE__CHATS = "SAVE__CHATS";
+
+//chat
+export const FETCH__NOTIFICATION = "FETCH__NOTIFICATION";
+export const SAVE__NOTIFICATION = "SAVE__NOTIFICATION";
+export const ACCEPT__NOTIFICATION = "ACCEPT__NOTIFICATION";

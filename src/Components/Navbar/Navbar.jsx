@@ -67,7 +67,7 @@ const Navbar = () => {
     dispatch(menuVisible(true));
     console.log({ sideBarVisibility });
   };
-  console.log(user.name);
+  console.log(user.profilePic);
   const path = "../../../public/images/profiles/";
   return (
     <div className="flex justify-between p-2 md:mx-6 relative">
@@ -96,7 +96,7 @@ const Navbar = () => {
               onClick={() => handleClick("userProfile")}
             >
               <img
-                src={path + user.profilePic}
+                src={`${window.location.origin}/images/profiles/${user.profilePic}`}
                 className="rounded-full w-8 h-8"
               />
               <p>

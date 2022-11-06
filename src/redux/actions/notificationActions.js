@@ -17,9 +17,9 @@ export const getNotifications = (room) => async (dispatch) => {
   }
 };
 
-export const saveNotifications = () => async (dispatch) => {
+export const saveNotifications = (notification) => async (dispatch) => {
   try {
-    const { data } = await api.createNotification();
+    const { data } = await api.createNotification(notification);
 
     dispatch({ type: SAVE__NOTIFICATION, payload: data });
   } catch (error) {

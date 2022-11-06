@@ -26,6 +26,7 @@ import { getActivityLogs } from "./redux/actions/activityLogActions";
 import { getUser, getUsers } from "./redux/actions/userActions";
 import CreateDesignFile from "./Components/CreateProject/CreateDesignFile/CreateDesignFile";
 import ProjectManager from "./Components/ProjectManager/ProjectManager";
+import { getNotifications } from "./redux/actions/notificationActions";
 
 // toast.configure();
 function PreApp() {
@@ -34,7 +35,11 @@ function PreApp() {
   const dispatch = useDispatch();
   const { error, auth } = useSelector((state) => state.userReducer);
   const { project } = useSelector((state) => state.projectReducer);
+
   const { name } = useParams();
+  useEffect(() => {
+    dispatch(getNotifications(project.projectName));
+  }, []);
   useEffect(() => {
     {
       toast.error(error);

@@ -19,9 +19,9 @@ function Repositories() {
   return (
     <div className="repositories">
       {projects &&
-        projects?.map((project) => {
+        projects?.map((project, index) => {
           return (
-            <div className="project__card">
+            <div className="project__card" key={index}>
               {/* project name */}
               <div className="project__name">
                 <h3>

@@ -6,12 +6,12 @@ import "./style.css";
 function DesignFiles({ project }) {
   const { name, projectName } = useParams();
   const { design__files } = useSelector((state) => state.designFileReducer);
-  console.log(design__files)
+  console.log(design__files);
   return (
     <div>
       {design__files &&
         design__files?.map((file, index) => {
-          return <div>hello</div>;
+          return <div key={index}>hello</div>;
         })}
     </div>
   );

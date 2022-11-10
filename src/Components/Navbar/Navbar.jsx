@@ -6,9 +6,10 @@ import { RiNotification3Line } from "react-icons/ri";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { useSelector, useDispatch } from "react-redux";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
-
+// import Notification from "../Notification/Notification";
 import avatar from "../../data/avatar.jpg";
 import { menuVisible } from "../../redux/actions/uiActions";
+import Notification from "../Notification/Notification";
 // import { Cart, Chat, Notification, UserProfile } from ".";
 
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
@@ -36,7 +37,7 @@ const Navbar = () => {
     chat: false,
     cart: false,
     userProfile: false,
-    notifiactiono: false,
+    notification: false,
   };
   const [isClicked, setIsClicked] = useState(initialState);
   const [screenSize, setScreenSize] = useState(undefined);
@@ -67,7 +68,8 @@ const Navbar = () => {
     dispatch(menuVisible(true));
     console.log({ sideBarVisibility });
   };
-  console.log(user.profilePic);
+  let pic = user.profilePic;
+  console.log({ user });
   const path = "../../../public/images/profiles/";
   return (
     <div className="flex justify-between p-2 md:mx-6 relative">
@@ -112,7 +114,7 @@ const Navbar = () => {
         )}
         {/* {isClicked.cart && "Cart"} */}
         {isClicked.chat && "Chat"}
-        {isClicked.notification && "Notification"}
+        {isClicked.notification && <Notification />}
         {isClicked.userProfile && "UserProfile"}
       </div>
     </div>

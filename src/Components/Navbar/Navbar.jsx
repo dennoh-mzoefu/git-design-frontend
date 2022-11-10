@@ -32,6 +32,7 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 const Navbar = () => {
   const { sideBarVisibility } = useSelector((state) => state.sideBarVisibility);
   const { user, auth } = useSelector((state) => state.userReducer);
+  const { notifications } = useSelector((state) => state.notificationReducer);
   const dispatch = useDispatch();
   const initialState = {
     chat: false,
@@ -66,16 +67,17 @@ const Navbar = () => {
 
   const handleActiveMenu = () => {
     dispatch(menuVisible(true));
-    console.log({ sideBarVisibility });
+    // console.log({ sideBarVisibility });
   };
-  let pic = user.profilePic;
-  console.log({ user });
+  // let l = notifications.length;
+  // console.log({ l });
   const path = "../../../public/images/profiles/";
   return (
     <div className="flex justify-between p-2 md:mx-6 relative">
       <div onClick={handleActiveMenu}>
         <NavButton title="Menu" color="blue" icon={<AiOutlineMenu />} />
       </div>
+      {notifications && notifications.length}
       <div className="flex">
         <NavButton
           dotColor="#03C9D7"

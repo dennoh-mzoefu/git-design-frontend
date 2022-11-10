@@ -1,66 +1,67 @@
-.collab input {
-    background-color: white;
-    min-width: 620px;
-}
-
-.collab {
+.collaborators {
     display: flex;
-    flex-direction: column;
-    /* width: 100%; */
     justify-content: center;
-    align-items: center;
-    transition: 1s;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
 }
 
-.search-container,
-.users {
-    margin-top: 20px;
+.input_search {
+    width: 400px;
 }
 
-.invite__list {
-    width: fit-content;
-    padding: 10px
-}
-
-.table__image {
-    height: 50px;
-    width: 50px;
+.td img {
+    height: 70px;
+    width: 70px;
     border-radius: 50%;
 }
 
-.table__table {
-    width: fit-content;
+.table__head {
+    display: flex;
+    width: 400px;
+    height: 50px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+    justify-content: space-around;
+}
+
+.inner__table__heaad {
+    width: 100%;
+    height: 100%;
+}
+
+.table__users {
+    display: flex;
+    flex-direction: column;
 }
 
 .table-row {
     display: flex;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+    flex-direction: row;
+    width: 400px;
+    justify-content: space-around;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
 }
 
-
-.table__invite {
-    background-color: red;
-    padding: 10px 0;
-    width: 80%;
+.td button {
+    background-color: rgba(0, 0, 0, 0.2);
     color: white;
+    height: 100%;
+    width: 70px;
 }
 
-.table .tr:nth-child(even) {
-    background-color: rgb(242, 242, 242);
-}
-
-.table .tr:hover {
-    background-color: rgb(0, 0, 0);
-    color: rgba(150, 152, 250, 0.9);
-}
-
-.tr {
+.invited__users {
+    width: fit-content;
+    padding: 0;
+    margin: 0;
     display: flex;
 }
 
-.th,
-.td {
-    padding: 5px;
-    width: 15px;
+.invited__user__image {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    margin: 0 0 0 -20px;
+    padding: 0;
 }

@@ -9,7 +9,7 @@ function Collaborators() {
   const { user } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
 
-  const { notifications } = useSelector((state) => state.notificationReducer);
+  // const { notifications } = useSelector((state) => state.notificationReducer);
 
   // filter receiver-notifications and remove them from variable users below to a new array and display the array
   // const receiver =
@@ -17,6 +17,7 @@ function Collaborators() {
   const { users } = useSelector((state) => state.userReducer);
 
   const [name, setName] = useState("");
+  const [invitedUsers, setInvitedUsers] = useState([]);
 
   const [foundUsers, setFoundUsers] = useState(users);
 
@@ -50,36 +51,55 @@ function Collaborators() {
   };
 
   return (
-    <div className="container">
+    <div className="collaborators">
+      <div className="table__head">
+        <div className="inner__table__heaad">Profile Pic</div>
+        <div className="inner__table__heaad">Name</div>
+        <div className="inner__table__heaad">Add</div>
+      </div>
       <input
         type="search"
         value={name}
         onChange={filter}
-        className="input"
+        className="input_search"
         placeholder="Filter"
       />
-
-      <div className="">
-        {foundUsers && foundUsers.length > 0 ? (
-          foundUsers.map((item, index) => (
-            <div key={index} className="table-row tr">
-              <div className="td">
+      <div className="whole__table__users">
+        <div className="table__users">
+          {foundUsers && foundUsers.length > 0 ? (
+            foundUsers.map((item, index) => (
+              <div key={index} className="table-row tr">
+                <div className="td">
+                  <img
+                    className="table__image"
+                    src={`${window.location.origin}/images/profiles/${item.profilePic}`}
+                  />
+                </div>
+                <div className="td">{item.name}</div>
+                <div className="td">
+                  <button className="table__invite" onClick={inviteUser(item)}>
+                    Invite
+                  </button>
+                </div>
+              </div>
+            ))
+          ) : (
+            <h1>No results found!</h1>
+          )}
+          {/* {console.log(invitedUsers)} */}
+        </div>
+        {/* <div className="invited__users">
+          invited users
+          {invitedUsers &&
+            invitedUsers?.map((user) => {
+              <div className="user__card">
                 <img
-                  className="table__image"
-                  src={`${window.location.origin}/images/profiles/${item.profilePic}`}
+                  className="invited__user__image"
+                  src={`${window.location.origin}/images/profiles/${user.profilePic}`}
                 />
-              </div>
-              <div className="td">{item.name}</div>
-              <div className="td">
-                <button className="table__invite" onClick={inviteUser(item)}>
-                  Invite
-                </button>
-              </div>
-            </div>
-          ))
-        ) : (
-          <h1>No results found!</h1>
-        )}
+              </div>;
+            })}
+        </div> */}
       </div>
     </div>
   );

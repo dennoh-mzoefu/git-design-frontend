@@ -20,6 +20,7 @@ function Collaborators() {
   const [invitedUsers, setInvitedUsers] = useState([]);
 
   const [foundUsers, setFoundUsers] = useState(users);
+  const [currentUser, setCurrentUser] = useState("");
 
   const filter = (e) => {
     const keyword = e.target.value;
@@ -46,17 +47,17 @@ function Collaborators() {
       sender: user.name,
     };
     dispatch(saveNotifications(notification));
+    setInvitedUsers((prevState) =>({...prevState,item}));
     // item1 = item;
     // add a .then method to dispatch
   };
+  useEffect(() => {
+    currentUser && inviteUser(currentUser)
+  }, [currentUser])
+  
 
-  return (
+  return ( 
     <div className="collaborators">
-      <div className="table__head">
-        <div className="inner__table__heaad">Profile Pic</div>
-        <div className="inner__table__heaad">Name</div>
-        <div className="inner__table__heaad">Add</div>
-      </div>
       <input
         type="search"
         value={name}
@@ -64,6 +65,11 @@ function Collaborators() {
         className="input_search"
         placeholder="Filter"
       />
+      <div className="table__head">
+        <div className="inner__table__heaad">Profile Pic</div>
+        <div className="inner__table__heaad">Name</div>
+        <div className="inner__table__heaad">Add</div>
+      </div>
       <div className="whole__table__users">
         <div className="table__users">
           {foundUsers && foundUsers.length > 0 ? (
@@ -75,9 +81,17 @@ function Collaborators() {
                     src={`${window.location.origin}/images/profiles/${item.profilePic}`}
                   />
                 </div>
-                <div className="td">{item.name}</div>
                 <div className="td">
-                  <button className="table__invite" onClick={inviteUser(item)}>
+                  <b>{item.name}</b>
+                </div>
+                <div className="td">
+                  <button className="table__invite" 
+                  // onClick={inviteUser(item)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setCurrentUser(item)
+                  }}
+                  >
                     Invite
                   </button>
                 </div>
@@ -86,11 +100,11 @@ function Collaborators() {
           ) : (
             <h1>No results found!</h1>
           )}
-          {/* {console.log(invitedUsers)} */}
+          {console.log({ foundUsers })}
         </div>
-        {/* <div className="invited__users">
+        <div className="invited__users">
           invited users
-          {invitedUsers &&
+          {/* {invitedUsers.length != 0 &&
             invitedUsers?.map((user) => {
               <div className="user__card">
                 <img
@@ -98,8 +112,8 @@ function Collaborators() {
                   src={`${window.location.origin}/images/profiles/${user.profilePic}`}
                 />
               </div>;
-            })}
-        </div> */}
+            })} */}
+        </div>
       </div>
     </div>
   );

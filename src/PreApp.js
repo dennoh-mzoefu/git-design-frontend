@@ -33,13 +33,13 @@ function PreApp() {
   const { sideBarVisibility } = useSelector((state) => state.sideBarVisibility);
   // const auth = true;
   const dispatch = useDispatch();
-  const { error, auth } = useSelector((state) => state.userReducer);
+  const { error, auth, user } = useSelector((state) => state.userReducer);
   const { project } = useSelector((state) => state.projectReducer);
 
   const { name } = useParams();
   useEffect(() => {
-    dispatch(getNotifications(project.projectName));
-  }, []);
+    user && dispatch(getNotifications(user.name));
+  }, [user]);
   useEffect(() => {
     {
       toast.error(error);

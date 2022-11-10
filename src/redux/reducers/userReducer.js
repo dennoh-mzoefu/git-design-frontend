@@ -21,28 +21,28 @@ export default (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case ERROR:
-      console.log(JSON.stringify(payload));
+      // console.log(JSON.stringify(payload));
       return { ...state, error: payload };
     case CREATE:
-      console.log(payload);
+      // console.log(payload);
       return { ...state, user: payload, auth: true };
     case FETCH_USER:
-      console.log(payload);
+      // console.log(payload);
       return { ...state, user: payload };
     case FETCH__ALL_USERS:
-      console.log(payload);
+      // console.log(payload);
       return { ...state, users: payload };
     case LOGIN:
-      console.log(payload);
+      // console.log(payload);
       return { ...state, user: payload, auth: true };
     case FETCH_USER__LOCAL__STORAGE:
-      console.log(payload);
+      // console.log(payload);
       return { ...state, user: payload.user, auth: payload.auth };
     case UPDATE:
-      console.log(payload);
+      // console.log(payload);
       return { ...state, user: payload };
     case DELETE:
-      console.log(payload);
+      // console.log(payload);
       return { ...state, user: payload };
 
     default:

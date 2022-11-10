@@ -6,9 +6,9 @@ import {
 } from "./types";
 import * as api from "../api/index.js";
 
-export const getNotifications = (room) => async (dispatch) => {
+export const getNotifications = (receiver) => async (dispatch) => {
   try {
-    const { data } = await api.fetchNotifications(room);
+    const { data } = await api.fetchNotifications(receiver);
 
     dispatch({ type: FETCH__NOTIFICATION, payload: data });
   } catch (error) {

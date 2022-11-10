@@ -17,22 +17,22 @@ export default (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case ERROR:
-      console.log(JSON.stringify(payload));
+      // console.log(JSON.stringify(payload));
       return { ...state, error: payload };
     case CREATE_DESIGN__FILE:
-      console.log(payload);
+      // console.log(payload);
       return { ...state, design__file: payload };
     case FETCH_DESIGN__FILE:
-      console.log(payload);
+      // console.log(payload);
       return { ...state, design__file: payload };
     case FETCH_DESIGN__FILES:
-      console.log(payload);
+      // console.log(payload);
       return { ...state, design__files: payload };
     case FETCH___PROJECT__DESIGN__FILE:
-      console.log(payload);
+      // console.log(payload);
       return { ...state, design__files: payload };
     case UPDATE_DESIGN__FILE:
-      console.log(payload);
+      // console.log(payload);
       return { ...state, design__file: payload };
 
     default:

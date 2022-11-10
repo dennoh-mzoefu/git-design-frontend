@@ -9,13 +9,13 @@ export default (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case ERROR:
-      console.log(JSON.stringify(payload));
+      // console.log(JSON.stringify(payload));
       return { ...state, error: payload };
     case SAVE__CHATS:
-      console.log(payload);
+      // console.log(payload);
       return { ...state, chat: payload };
     case FETCH__CHATS:
-      console.log(payload);
+      // console.log(payload);
       return { ...state, chats: payload };
 
     default:

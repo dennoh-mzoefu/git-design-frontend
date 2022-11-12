@@ -4,7 +4,8 @@ import axios from "axios";
 
 const url_project = "http://localhost:5000/projects";
 
-export const fetchProjects = () => axios.get(url_project);
+export const fetchProjects = (ownerName) =>
+  axios.get(`${url_project}/${ownerName}`);
 export const createProject = (newProject) =>
   axios.post(`${url_project}`, newProject);
 
@@ -61,5 +62,7 @@ const notification = "http://localhost:5000/notification";
 // export const fetchNotifications = (room) => axios.get(notification, room);
 export const createNotification = (data) =>
   axios.post(`${notification}/`, data);
-export const fetchNotifications = (receiver) => axios.get(`${notification}/notify/${receiver}`);
-export const acceptNotification = (data1) => axios.post(`${notification}/accept`, data1);
+export const fetchNotifications = (receiver) =>
+  axios.get(`${notification}/notify/${receiver}`);
+export const acceptNotification = (data1) =>
+  axios.post(`${notification}/accept`, data1);

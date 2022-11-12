@@ -23,7 +23,7 @@ export default (state = initialState, action) => {
       // console.log(payload);
       return { ...state, project: payload };
     case FETCH_PROJECT:
-      // console.log(payload);
+      console.log(payload);
       return { ...state, project: payload };
     case FETCH_PROJECT__LOCAL__STORAGE:
       // console.log(payload);

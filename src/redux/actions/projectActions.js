@@ -10,9 +10,9 @@ import {
 
 import * as api from "../api/index.js";
 
-export const getProjects = () => async (dispatch) => {
+export const getProjects = (ownerName) => async (dispatch) => {
   try {
-    const { data } = await api.fetchProjects();
+    const { data } = await api.fetchProjects(ownerName);
 
     dispatch({ type: FETCH_PROJECTS, payload: data });
   } catch (error) {

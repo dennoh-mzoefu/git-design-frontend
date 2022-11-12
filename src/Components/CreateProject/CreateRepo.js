@@ -20,7 +20,7 @@ function CreateRepo() {
     const project = { projectName, description, ownerName: user.name };
     dispatch(createProject(project))
       .then(() => {
-        JSON.stringify(localStorage.setItem("project", project));
+        // JSON.stringify(localStorage.setItem("project", project));
         navigate("/user/projectName/create-design-file");
       })
       .catch((err) => dispatch(error(err)));

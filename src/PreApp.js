@@ -57,10 +57,10 @@ function PreApp() {
     var auth = localStorage.getItem("auth");
     const data = { user, auth };
     auth && dispatch(fetchUserLocalStorage(data));
-    dispatch(getProjects());
+    dispatch(getProjects(user.name));
 
     // fetch project from local storage
-    var project = localStorage.getItem("project");
+    // var project = localStorage.getItem("project");
     dispatch(fetchProjectLocalStorage(project));
   }, [auth]);
 

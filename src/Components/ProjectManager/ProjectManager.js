@@ -18,7 +18,11 @@ function ProjectManager() {
   const { user } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
   useEffect(() => {
-    projectName && dispatch(getProject(projectName));
+    const data = {
+      projectName,
+      ownerName: user.name,
+    };
+    projectName && dispatch(getProject(data));
   }, []);
   const { project } = useSelector((state) => state.projectReducer);
   console.log(project);

@@ -531,6 +531,10 @@ export const links = [
         icon: <FiEdit />,
       },
       {
+        name: "editor",
+        icon: <FiEdit />,
+      },
+      {
         name: "color-picker",
         icon: <BiColorFill />,
       },
@@ -544,7 +548,7 @@ export const links = [
         icon: <AiOutlineStock />,
       },
       {
-        name: "Faqs",
+        name: "faqs",
         icon: <AiOutlineAreaChart />,
       },
     ],

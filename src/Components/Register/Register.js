@@ -45,7 +45,7 @@ function Register() {
     <div>
       <LandingNav />
       <div className="register">
-        <div className="container">
+        <div className="container__box">
           <div className="brand-title">Sign Up</div>
           <div className="brand">
             <input type="file" onChange={(e) => uploadImage(e.target.files)} />

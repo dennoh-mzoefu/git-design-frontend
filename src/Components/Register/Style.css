@@ -18,7 +18,7 @@
     font-family: poppins;
 }
 
-.container {
+.container__box {
     position: relative;
     width: 350px;
     height: min-content;
@@ -118,6 +118,7 @@
     top: 0;
     left: 0;
 }
+
 input[type=file]::file-selector-button {
     margin-right: 20px;
     border: none;
@@ -127,8 +128,8 @@ input[type=file]::file-selector-button {
     color: #fff;
     cursor: pointer;
     transition: background .2s ease-in-out;
-  }
-  
-  input[type=file]::file-selector-button:hover {
+}
+
+input[type=file]::file-selector-button:hover {
     background: #0d45a5;
-  }
+}

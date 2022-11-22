@@ -1,16 +1,27 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import "./style.css";
 // import ScrollToBottom from "react-scroll-to-bottom";
 
 function Chat({ socket, username, room }) {
+  // const {chats} = useSelector((state) => chatreducer)
   const [currentMessage, setCurrentMessage] = useState("");
+  // const [messageList, setMessageList] = useState(chats);
   const [messageList, setMessageList] = useState([
     { author: "you", message: "hello", time: "17:56" },
     { author: "other", message: "hello", time: "17:56" },
     { author: "you", message: "hello", time: "17:56" },
     { author: "other", message: "hello", time: "17:56" },
   ]);
-
+  const handleClick = () => {
+    // dispatch(savechats(currentMessage).then(() => {
+    // setMessageList(prevMessageList => ...prevMessageList,currentMessage)
+  };
+  //
+  //
+  //
+  //
+  // }
   // const sendMessage = async () => {
   //   if (currentMessage !== "") {
   //     const messageData = {
@@ -49,13 +60,13 @@ function Chat({ socket, username, room }) {
         <p>Project Chat</p>
       </div>
       <div className="chat-body">
-        <div className="message-container">
+        <div className="message-container__box">
           {messageList.map((messageContent, index) => {
             return (
               <div
                 key={index}
                 className="message"
-                id={messageContent.author==="you" ? "you" : "other"}
+                id={messageContent.author === "you" ? "you" : "other"}
               >
                 <div>
                   <div className="message-content">

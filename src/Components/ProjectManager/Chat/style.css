@@ -86,14 +86,14 @@
     position: relative;
 }
 
-.chat-window .chat-body .message-container {
+.chat-window .chat-body .message-container__box {
     width: 100%;
     height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
 }
 
-.chat-window .chat-body .message-container::-webkit-scrollbar {
+.chat-window .chat-body .message-container__box::-webkit-scrollbar {
     display: none;
 }
 

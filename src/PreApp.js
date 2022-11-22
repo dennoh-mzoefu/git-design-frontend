@@ -27,6 +27,9 @@ import { getUser, getUsers } from "./redux/actions/userActions";
 import CreateDesignFile from "./Components/CreateProject/CreateDesignFile/CreateDesignFile";
 import ProjectManager from "./Components/ProjectManager/ProjectManager";
 import { getNotifications } from "./redux/actions/notificationActions";
+import Comment from "./Components/Comment/Comment";
+import { comments } from "./Components/Comment/dummy";
+import Editor from "./Components/Editor/Editor";
 
 // toast.configure();
 function PreApp() {
@@ -112,10 +115,15 @@ function PreApp() {
               <Route path="kanban" element={<Kanban />} />
               <Route path="activity-Log" element={<Calendar />} />
               <Route path="create-Project" element={<CreateRepo />} />
+              <Route path="editor" element={<Editor />} />
               <Route path="/:projectName" element={<ProjectManager />} />
               <Route
                 path="/projectName/create-design-file"
                 element={<CreateDesignFile />}
+              />
+              <Route
+                path="faqs"
+                element={<Comment comments={comments} width={95} />}
               />
               {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
             </Routes>

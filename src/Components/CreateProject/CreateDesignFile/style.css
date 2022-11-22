@@ -1,4 +1,4 @@
-input {
+.whole__create__repo input {
     width: 100%;
     padding: 0.4em;
     line-height: 1;
@@ -16,15 +16,15 @@ h4 {
     color: #bd8200
 }
 
-input:focus {
+.whole__create__repo input:focus {
     outline: 0;
     border-color: #bd8200;
 }
 
-input:focus+.input-icon i {
+.whole__create__repo input:focus+.input-icon i {
     color: #f0a500;
 }
 
-input:focus+.input-icon:after {
+.whole__create__repo input:focus+.input-icon:after {
     border-right-color: #f0a500;
 }

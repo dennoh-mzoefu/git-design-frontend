@@ -25,14 +25,18 @@ function Login() {
       })
       .catch((err) => dispatch(error(err)));
   };
-  {user && setName("user.name")}
-  {name && navigate(`/${user.name}/home`)}
+  {
+    user && setName("user.name");
+  }
+  {
+    name && navigate(`/${user.name}/home`);
+  }
   return (
     <div>
       <LandingNav />
 
       <div className="login">
-        <div className="container">
+        <div className="container__box">
           <div
             className="brand-logo"
             style={{

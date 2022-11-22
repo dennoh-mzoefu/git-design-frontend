@@ -19,7 +19,7 @@
     font-family: poppins;
 }
 
-.container {
+.container__box {
     position: relative;
     width: 350px;
     height: 500px;
